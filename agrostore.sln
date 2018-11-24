@@ -3,7 +3,41 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrostore.WebAPI", "Agrostore.WebAPI\Agrostore.WebAPI.csproj", "{16E6DB76-886E-4222-8216-DB4A501A82C8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{419A5365-0A64-4038-B9BE-85FA9189A8B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Agrostore", "Agrostore", "{32AF6AA1-E722-4886-95C6-EAD27D6DEAB5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Interfaces", "Interfaces", "{5A4101C4-A06F-4A85-81FD-0FF31C67CA67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modules", "Modules", "{B990B2D7-96D5-4CD5-A9F1-1C772AF33520}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dependencies", "Dependencies", "{F1DC8EE9-5D8D-45D2-851A-0931CC08F9F8}"
+	ProjectSection(SolutionItems) = preProject
+		Libraries\Common.Database.Interface.dll = Libraries\Common.Database.Interface.dll
+		Libraries\Common.Database.MySQL.dll = Libraries\Common.Database.MySQL.dll
+		Libraries\Common.Logger.dll = Libraries\Common.Logger.dll
+		Libraries\Common.Logger.Interface.dll = Libraries\Common.Logger.Interface.dll
+		Libraries\Common.Logger.Log4Net.dll = Libraries\Common.Logger.Log4Net.dll
+		Libraries\Common.Modules.Base.dll = Libraries\Common.Modules.Base.dll
+		Libraries\Core.dll = Libraries\Core.dll
+		Libraries\Core.Platforms.dll = Libraries\Core.Platforms.dll
+		Libraries\Google.Protobuf.dll = Libraries\Google.Protobuf.dll
+		Libraries\log4net.dll = Libraries\log4net.dll
+		Libraries\MySql.Data.dll = Libraries\MySql.Data.dll
+		Libraries\Newtonsoft.Json.dll = Libraries\Newtonsoft.Json.dll
+		Libraries\Utils.Collections.dll = Libraries\Utils.Collections.dll
+		Libraries\Utils.Runtime.dll = Libraries\Utils.Runtime.dll
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrostore.CategoriesManagement", "Agrostore\Agrostore.CategoriesManagement\Agrostore.CategoriesManagement.csproj", "{64259274-A9ED-47A4-93FB-C859EB1323BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrostore.CategoriesManagement.Interface", "Agrostore\Agrostore.CategoriesManagement.Interface\Agrostore.CategoriesManagement.Interface.csproj", "{E130E932-2672-49D8-9C5A-1A0D32F0D771}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrostore.WebAPI", "UI\Agrostore.WebAPI\Agrostore.WebAPI.csproj", "{31A1FC72-26DB-4D53-BB01-5138613AB7F4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrostore.ProductsManagement.Interface", "Agrostore\Agrostore.ProductsManagement.Interface\Agrostore.ProductsManagement.Interface.csproj", "{F431F5E2-CE4C-4D44-ABD2-BD424F2716BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Agrostore.ProductsManagement", "Agrostore\Agrostore.ProductsManagement\Agrostore.ProductsManagement.csproj", "{319E5328-2CE5-44D2-8701-193DC6649284}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,13 +45,39 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{16E6DB76-886E-4222-8216-DB4A501A82C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16E6DB76-886E-4222-8216-DB4A501A82C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16E6DB76-886E-4222-8216-DB4A501A82C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16E6DB76-886E-4222-8216-DB4A501A82C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64259274-A9ED-47A4-93FB-C859EB1323BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64259274-A9ED-47A4-93FB-C859EB1323BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64259274-A9ED-47A4-93FB-C859EB1323BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64259274-A9ED-47A4-93FB-C859EB1323BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E130E932-2672-49D8-9C5A-1A0D32F0D771}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E130E932-2672-49D8-9C5A-1A0D32F0D771}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E130E932-2672-49D8-9C5A-1A0D32F0D771}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E130E932-2672-49D8-9C5A-1A0D32F0D771}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31A1FC72-26DB-4D53-BB01-5138613AB7F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31A1FC72-26DB-4D53-BB01-5138613AB7F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31A1FC72-26DB-4D53-BB01-5138613AB7F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31A1FC72-26DB-4D53-BB01-5138613AB7F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F431F5E2-CE4C-4D44-ABD2-BD424F2716BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F431F5E2-CE4C-4D44-ABD2-BD424F2716BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F431F5E2-CE4C-4D44-ABD2-BD424F2716BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F431F5E2-CE4C-4D44-ABD2-BD424F2716BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{319E5328-2CE5-44D2-8701-193DC6649284}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{319E5328-2CE5-44D2-8701-193DC6649284}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{319E5328-2CE5-44D2-8701-193DC6649284}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{319E5328-2CE5-44D2-8701-193DC6649284}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5A4101C4-A06F-4A85-81FD-0FF31C67CA67} = {32AF6AA1-E722-4886-95C6-EAD27D6DEAB5}
+		{B990B2D7-96D5-4CD5-A9F1-1C772AF33520} = {32AF6AA1-E722-4886-95C6-EAD27D6DEAB5}
+		{F1DC8EE9-5D8D-45D2-851A-0931CC08F9F8} = {32AF6AA1-E722-4886-95C6-EAD27D6DEAB5}
+		{64259274-A9ED-47A4-93FB-C859EB1323BA} = {B990B2D7-96D5-4CD5-A9F1-1C772AF33520}
+		{E130E932-2672-49D8-9C5A-1A0D32F0D771} = {5A4101C4-A06F-4A85-81FD-0FF31C67CA67}
+		{31A1FC72-26DB-4D53-BB01-5138613AB7F4} = {419A5365-0A64-4038-B9BE-85FA9189A8B2}
+		{F431F5E2-CE4C-4D44-ABD2-BD424F2716BC} = {5A4101C4-A06F-4A85-81FD-0FF31C67CA67}
+		{319E5328-2CE5-44D2-8701-193DC6649284} = {B990B2D7-96D5-4CD5-A9F1-1C772AF33520}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3AB3971-7722-4DA5-B4D2-F0839276D1F4}

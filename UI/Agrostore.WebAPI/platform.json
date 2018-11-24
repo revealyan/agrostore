@@ -1,0 +1,63 @@
+{
+  "Name": "RESTful webAPI service",
+  "Modules": [
+    {
+      "Name": "categories_manager",
+      "Class": "Agrostore.CategoriesManagement.CategoriesManager",
+      "Assembly": "Agrostore.CategoriesManagement",
+      "Dependencies": [
+        {
+          "Name": "logger_log4net",
+          "Interface": "Common.Logger.Interface.ILogger",
+          "Assembly": "Common.Logger.Interface"
+        },
+        {
+          "Name": "database_connect",
+          "Interface": "Common.Database.Interface.IDatabase",
+          "Assembly": "Common.Database.Interface"
+        }
+      ]
+    },
+    {
+      "Name": "products_manager",
+      "Class": "Agrostore.ProductsManagement.ProductsManager",
+      "Assembly": "Agrostore.ProductsManagement",
+      "Dependencies": [
+        {
+          "Name": "logger_log4net",
+          "Interface": "Common.Logger.Interface.ILogger",
+          "Assembly": "Common.Logger.Interface"
+        },
+        {
+          "Name": "database_connect",
+          "Interface": "Common.Database.Interface.IDatabase",
+          "Assembly": "Common.Database.Interface"
+        }
+      ]
+    },
+    {
+      "Name": "database_connect",
+      "Class": "Common.Database.MySQL.MySQLDatabase",
+      "Assembly": "Common.Database.MySQL",
+      "Dependencies": [
+        {
+          "Name": "logger_log4net",
+          "Interface": "Common.Logger.Interface.ILogger",
+          "Assembly": "Common.Logger.Interface"
+        }
+      ],
+      "Parameters": {
+        "connectionString": "Server=192.168.0.102;Port=3306;Database=agroshop;Uid=revealyan;Password=carvayne2Qq"
+      }
+    },
+    {
+      "Name": "logger_log4net",
+      "Class": "Common.Logger.Log4Net.Log4NetLogger",
+      "Assembly": "Common.Logger.Log4Net",
+      "Parameters": {
+        "config": "log4net.config",
+        "loggerName":  "LOGGER"
+      }
+    }
+  ]
+}
