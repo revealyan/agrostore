@@ -5,6 +5,7 @@
         #region core
         public int Id { get; set; }
         public string Name { get; set; }
+        public long Total { get; set; }
         #endregion
 
         #region init

@@ -2,6 +2,7 @@
 using Agrostore.CategoriesManagement.Interface.Entities;
 using Agrostore.ProductsManagement.Interface;
 using Agrostore.ProductsManagement.Interface.Entities;
+using Agrostore.WebAPI.Models;
 using System;
 using System.Collections.Generic;
 using System.Web.Http;
@@ -36,17 +37,31 @@ namespace Agrostore.WebAPI.Controllers
             }
         }
 
-        public IList<Product> Get(int id)
+        public CategoryModel Get(int id, int? page = null, int? count = null)
         {
+            CategoryModel res = null;
             try
             {
-                var category = _categoriesManager.Get(id);
-                return _productsManager.Get(category);
+                int? start = null;
+                if(page != null && count != null && page > 0 && count >= 0)
+                {
+                    start = (page - 1) * count;
+                }
+                var category = _categoriesManager.Get(id); res = new CategoryModel()
+                {
+                    Total = category.Total,
+                    Products = _productsManager.Get(category, start, count)
+                };
             }
             catch (Exception exc)
             {
-                return null;
+                res = new CategoryModel()
+                {
+                    Total = 0,
+                    Products = null
+                };
             }
+            return res;
         }
         #endregion
 

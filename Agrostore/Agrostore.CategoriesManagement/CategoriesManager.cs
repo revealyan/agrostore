@@ -23,7 +23,8 @@ namespace Agrostore.CategoriesManagement
             return new Category()
             {
                 Id = reader.GetValue<int>("id"),
-                Name = reader.GetValue<string>("name")
+                Name = reader.GetValue<string>("name"),
+                Total = reader.GetValue<long>("total")
             };
         }
         #endregion
@@ -57,7 +58,7 @@ namespace Agrostore.CategoriesManagement
         public IList<Category> GetAll()
         {
             var res = new List<Category>();
-            using (var cmd = _database.CreateCommand("SELECT * FROM categoreis"))
+            using (var cmd = _database.CreateCommand($"SELECT categoreis.id as id, categoreis.name as name, pc.product_count as total FROM categoreis LEFT JOIN (SELECT categories_id, count(1) as product_count FROM products group by categories_id) pc on categoreis.id=pc.categories_id"))
             {
                 using (var reader = cmd.ExecuteReader())
                 {
@@ -73,7 +74,8 @@ namespace Agrostore.CategoriesManagement
         public Category Get(int id)
         {
             Category res = null;
-            using (var cmd = _database.CreateCommand($"SELECT * FROM categoreis WHERE id={id}"))
+            using (var cmd = _database.CreateCommand($"SELECT categoreis.id as id, categoreis.name as name, pc.product_count as total FROM categoreis LEFT JOIN (SELECT categories_id, count(1) as product_count FROM products group by categories_id) pc " +
+                                                     $"on categoreis.id=pc.categories_id WHERE id={id}"))
             {
                 using (var reader = cmd.ExecuteReader())
                 {

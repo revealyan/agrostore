@@ -20,11 +20,18 @@ namespace Agrostore.WebAPI.Controllers
         #endregion
 
         #region WebAPI
-        public IEnumerable<Product> Get()
+        public IEnumerable<Product> Get(int page, int count)
         {
             try
             {
-                return _productManager.GetAll();
+                int? start = null;
+                if (page > 0 && count >= 0)
+                {
+                    start = (page - 1) * count;
+                }
+                else throw new Exception();
+
+                return _productManager.GetAll(start, count);
             }
             catch (Exception exc)
             {
